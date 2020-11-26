@@ -1,26 +1,29 @@
 <template>
-    <wwEditableText
-        class="ww-text"
-        :tag="content.tag"
-        :disabled="!canEditText"
-        :value="content.text"
-        :textStyle="content.globalStyle"
-        :textClass="content.fontStyle"
-        @input="updateText"
-        @textbar-visibility-changed="onTextbarVisibilityChanged"
-    ></wwEditableText>
+    <div class="ww-button">
+        <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
+        <wwEditableText
+            class="ww-button__text"
+            :disabled="!canEditText"
+            :value="content.text"
+            :textStyle="content.globalStyle"
+            :textClass="content.fontStyle"
+            @input="updateText"
+            @textbar-visibility-changed="onTextbarVisibilityChanged"
+        ></wwEditableText>
+        <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>
+    </div>
 </template>
 
 <script>
-import { openEditHTML } from './popups';
-
 export default {
     name: '__COMPONENT_NAME__',
     wwDefaultContent: {
         text: {
-            en: 'New text',
+            en: 'My button',
         },
         globalStyle: {},
+        hasRightIcon: false,
+        hasLeftIcon: false,
     },
     props: {
         content: Object,
@@ -52,12 +55,32 @@ export default {
                 this.$emit('openMenu');
             }
         },
-        async edit() {
-            const { html } = (await openEditHTML(this.text)) || {};
-            if (html) {
-                this.updateText(html);
-            }
+    },
+    watch: {
+        'content.hasRightIcon': {
+            async handler(hasRightIcon) {
+                if (hasRightIcon && !this.content.rightIcon) {
+                    const uid = await wwLib.wwObjectHelper.create('ww-icon');
+                    this.$emit('update', { rightIcon: { uid, isWwObject: true } });
+                }
+            },
+        },
+        'content.hasLeftIcon': {
+            async handler(hasLeftIcon) {
+                if (hasLeftIcon && !this.content.leftIcon) {
+                    const uid = await wwLib.wwObjectHelper.create('ww-icon');
+                    this.$emit('update', { leftIcon: { uid, isWwObject: true } });
+                }
+            },
         },
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.ww-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>

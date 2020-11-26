@@ -1,20 +1,12 @@
 {
     "componentPath": "./src/wwObject.vue",
+    "options": {
+        "autoByContent": true
+    },
     "editor": {
         "label": {
-            "en": "Text",
-            "fr": "Texte"
-        },
-        "editElementMenu": {
-            "items": [
-                {
-                    "label": {
-                        "en": "Options",
-                        "fr": "Options"
-                    },
-                    "action": "edit"
-                }
-            ]
+            "en": "Button",
+            "fr": "Bouton"
         },
         "styleOptions": {
             "transformation": {
@@ -44,39 +36,6 @@
                 },
                 "path": "globalStyle.textShadow"
             },
-            "whiteSpace": {
-                "label": {
-                    "en": "White space",
-                    "fr": "Saut à la ligne"
-                },
-                "type": "TextSelect",
-                "options": {
-                    "options": [
-                        { "value": null, "label": "none" },
-                        { "value": "no-wrap", "label": "nowrap" },
-                        { "value": "pre", "label": "pre" },
-                        { "value": "pre-wrap", "label": "pre-wrap" },
-                        { "value": "pre-line", "label": "pre-line" },
-                        { "value": "break-spaces", "label": "break-spaces" }
-                    ]
-                },
-                "path": "globalStyle.whiteSpace"
-            },
-            "textOverflow": {
-                "label": {
-                    "en": "Text overflow",
-                    "fr": "Text overflow"
-                },
-                "type": "TextSelect",
-                "options": {
-                    "options": [
-                        { "value": null, "label": "none" },
-                        { "value": "clip", "label": "clip" },
-                        { "value": "ellipsis", "label": "ellipsis" }
-                    ]
-                },
-                "path": "globalStyle.whiteSpace"
-            },
             "lineHeight": {
                 "label": {
                     "en": "Line height",
@@ -100,32 +59,27 @@
                 "path": "globalStyle.wordSpacing"
             }
         },
-        "settingsOptions": [
-            {
-                "label": {
-                    "en": "SEO",
-                    "fr": "SEO"
-                },
-                "fields": {
-                    "tag": {
-                        "type": "TextSelect",
-                        "label": {
-                            "en": "Html tag",
-                            "fr": "Tag html"
-                        },
-                        "options": {
-                            "options": [
-                                { "value": "div", "label": "div" },
-                                { "value": "button", "label": "button" },
-                                { "value": "h1", "label": "h1" },
-                                { "value": "h2", "label": "h2" },
-                                { "value": "h3", "label": "h3" },
-                                { "value": "h4", "label": "h4" }
-                            ]
-                        }
-                    }
+        "settingsOptions": {
+            "hasLeftIcon": {
+                "label": { "en": "Left icon", "fr": "Icône gauche" },
+                "type": "TextRadioGroup",
+                "options": {
+                    "choices": [
+                        { "title": "off", "value": false, "label": "Off" },
+                        { "title": "on", "value": true, "label": "On" }
+                    ]
+                }
+            },
+            "hasRightIcon": {
+                "label": { "en": "Right icon", "fr": "Icône droite" },
+                "type": "TextRadioGroup",
+                "options": {
+                    "choices": [
+                        { "title": "off", "value": false, "label": "Off" },
+                        { "title": "on", "value": true, "label": "On" }
+                    ]
                 }
             }
-        ]
+        }
     }
 }

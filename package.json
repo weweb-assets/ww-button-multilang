@@ -1,10 +1,10 @@
 {
-    "name": "ww-text",
+    "name": "ww-button",
     "repository": {
         "type": "git",
-        "url": "https://github.com/weweb-assets/ww-text"
+        "url": "https://github.com/weweb-assets/ww-button"
     },
-    "version": "1.1.0",
+    "version": "1.0.0",
     "license": "MIT",
     "scripts": {
         "build": "weweb build",
@@ -12,9 +12,7 @@
         "create-config": "weweb config"
     },
     "dependencies": {
-        "prismjs": "^1.16.0",
-        "vue": "^2.6.11",
-        "vue-prism-editor": "^0.2.1"
+        "vue": "^2.6.11"
     },
     "devDependencies": {
         "@vue/eslint-config-prettier": "^6.0.0",
