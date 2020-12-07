@@ -8,7 +8,28 @@
             "en": "Button",
             "fr": "Bouton"
         },
+        "menuOptions": {
+            "items": [
+                {
+                    "name": "Typography",
+                    "quick": [{ "type": "custom-style", "name": "fontStyle" }],
+                    "icon": "Size"
+                },
+                {
+                    "name": "Tag",
+                    "quick": [{ "type": "Link" }],
+                    "icon": "link"
+                }
+            ]
+        },
         "styleOptions": {
+            "fontStyle": {
+                "type": "Typography",
+                "label": {
+                    "en": "Style",
+                    "fr": "Style"
+                }
+            },
             "transformation": {
                 "label": {
                     "en": "Transformation",
