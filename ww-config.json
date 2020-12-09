@@ -83,23 +83,11 @@
         "settingsOptions": {
             "hasLeftIcon": {
                 "label": { "en": "Left icon", "fr": "Icône gauche" },
-                "type": "TextRadioGroup",
-                "options": {
-                    "choices": [
-                        { "title": "off", "value": false, "label": "Off" },
-                        { "title": "on", "value": true, "label": "On" }
-                    ]
-                }
+                "type": "OnOff"
             },
             "hasRightIcon": {
                 "label": { "en": "Right icon", "fr": "Icône droite" },
-                "type": "TextRadioGroup",
-                "options": {
-                    "choices": [
-                        { "title": "off", "value": false, "label": "Off" },
-                        { "title": "on", "value": true, "label": "On" }
-                    ]
-                }
+                "type": "OnOff"
             }
         }
     }
