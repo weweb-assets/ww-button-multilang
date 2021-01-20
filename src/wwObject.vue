@@ -5,8 +5,7 @@
             class="ww-button__text"
             :disabled="!canEditText"
             :value="content.text"
-            :textStyle="content.globalStyle"
-            :textClass="content.fontStyle"
+            :textStyle="textStyle"
             @input="updateText"
         ></wwEditableText>
         <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>
@@ -20,12 +19,21 @@ export default {
         text: {
             en: 'My button',
         },
-        globalStyle: {},
+        fontSize: wwLib.responsive('16px'),
+        fontFamily: wwLib.responsive(''),
+        textAlign: wwLib.responsive(''),
+        color: wwLib.responsive(''),
+        backgroundColor: wwLib.responsive(''),
+        textTransform: wwLib.responsive(''),
+        textShadow: wwLib.responsive(''),
+        lineHeight: wwLib.responsive(''),
+        wordSpacing: wwLib.responsive(''),
         hasRightIcon: false,
         hasLeftIcon: false,
     },
     props: {
         content: Object,
+        wwElementState: Object,
         /* wwManager: start */
         wwEditorState: Object,
         /* wwManager: end */
@@ -41,6 +49,19 @@ export default {
             // eslint-disable-next-line no-unreachable
             return false;
             /* wwFront:end */
+        },
+        textStyle() {
+            return {
+                fontSize: this.content.fontSize,
+                fontFamily: this.content.fontFamily,
+                textAlign: this.content.textAlign,
+                color: this.content.color,
+                backgroundColor: this.content.backgroundColor,
+                textTransform: this.content.textTransform,
+                textShadow: this.content.textShadow,
+                lineHeight: this.content.lineHeight,
+                wordSpacing: this.content.wordSpacing,
+            };
         },
     },
     methods: {
