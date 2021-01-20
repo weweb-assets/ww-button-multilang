@@ -1,5 +1,5 @@
 <template>
-    <div class="ww-button">
+    <div class="ww-button" :is="tag" :class="{ button: tag }">
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
         <wwEditableText
             class="ww-button__text"
@@ -33,7 +33,6 @@ export default {
     },
     props: {
         content: Object,
-        wwElementState: Object,
         /* wwManager: start */
         wwEditorState: Object,
         /* wwManager: end */
@@ -62,6 +61,16 @@ export default {
                 lineHeight: this.content.lineHeight,
                 wordSpacing: this.content.wordSpacing,
             };
+        },
+        tag() {
+            return this.content.buttonType ? 'button' : 'div';
+        },
+        attributes() {
+            const type = this.content.buttonType;
+            if (!type) {
+                return {};
+            }
+            return { type };
         },
     },
     methods: {
@@ -92,8 +101,15 @@ export default {
 
 <style lang="scss" scoped>
 .ww-button {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+    &.button {
+        outline: none;
+        border: none;
+        background: none;
+        font-family: inherit;
+        font-size: inherit;
+    }
 }
 </style>

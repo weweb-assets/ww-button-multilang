@@ -131,6 +131,21 @@
             }
         },
         "settingsOptions": {
+            "buttonType": {
+                "label": {
+                    "en": "Type",
+                    "fr": "Type"
+                },
+                "type": "TextSelect",
+                "options": {
+                    "options": [
+                        { "value": null, "label": "none" },
+                        { "value": "button", "label": "Button" },
+                        { "value": "submit", "label": "Submit Button" },
+                        { "value": "reset", "label": "Reset Button" }
+                    ]
+                }
+            },
             "hasLeftIcon": {
                 "label": { "en": "Left icon", "fr": "Icône gauche" },
                 "type": "OnOff"
