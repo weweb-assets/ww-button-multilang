@@ -7,6 +7,7 @@
             :value="content.text"
             :textStyle="textStyle"
             @input="updateText"
+            @textbar-visibility-changed="onTextbarVisibilityChanged"
         ></wwEditableText>
         <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>
     </div>
@@ -76,6 +77,9 @@ export default {
     methods: {
         updateText(text) {
             this.$emit('update', { text });
+        },
+        onTextbarVisibilityChanged(visibility) {
+            this.$emit('change-menu-visibility', !visibility);
         },
     },
     watch: {
