@@ -29,6 +29,7 @@ export default {
         textShadow: wwLib.responsive(''),
         lineHeight: wwLib.responsive(''),
         wordSpacing: wwLib.responsive(''),
+        fontWeight: wwLib.responsive(''),
         hasRightIcon: false,
         hasLeftIcon: false,
     },
@@ -61,6 +62,7 @@ export default {
                 textShadow: this.content.textShadow,
                 lineHeight: this.content.lineHeight,
                 wordSpacing: this.content.wordSpacing,
+                fontWeight: this.content.fontWeight,
             };
         },
         tag() {
