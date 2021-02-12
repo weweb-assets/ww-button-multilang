@@ -179,29 +179,17 @@
             }
         },
         "otherOptions": {
-            "text-en": {
+            "text": {
                 "type": "Textarea",
                 "label": {
                     "en": "Text en",
                     "fr": "Texte en"
                 },
                 "bindable": true,
+                "multiLang": true,
                 "options": {
                     "row": 20
-                },
-                "path": "text.en"
-            },
-            "text-fr": {
-                "type": "Textarea",
-                "label": {
-                    "en": "Text fr",
-                    "fr": "Texte fr"
-                },
-                "bindable": true,
-                "options": {
-                    "row": 20
-                },
-                "path": "text.fr"
+                }
             }
         }
     }
