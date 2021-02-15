@@ -43,7 +43,9 @@ export default {
         canEditText() {
             /* wwManager:start */
             return (
-                this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION && this.wwEditorState.isSelected
+                this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION &&
+                this.wwEditorState.isSelected &&
+                !this.isTextBinded
             );
             /* wwManager:end */
             /* wwFront:start */
@@ -68,6 +70,11 @@ export default {
         tag() {
             return this.content.buttonType ? 'button' : 'div';
         },
+        /* wwManager:start */
+        isTextBinded() {
+            return this.wwEditorState.bindedProps['text'];
+        },
+        /* wwManager:end */
         attributes() {
             const type = this.content.buttonType;
             if (!type) {
