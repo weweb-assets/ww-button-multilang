@@ -12,8 +12,12 @@
             "items": [
                 {
                     "name": "Font size",
-                    "quick": [{ "type": "custom-style", "name": "fontSize" }],
-                    "icon": "Size"
+                    "quick": [
+                        { "type": "custom-style", "name": "fontSize" },
+                        { "type": "custom-settings", "name": "hasLeftIcon" },
+                        { "type": "custom-settings", "name": "hasRightIcon" }
+                    ],
+                    "icon": "icon"
                 },
                 {
                     "name": "Tag",
