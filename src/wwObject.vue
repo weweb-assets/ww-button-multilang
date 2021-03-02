@@ -92,22 +92,30 @@ export default {
         },
     },
     watch: {
+        /* wwManager:start */
         'content.hasRightIcon': {
             async handler(hasRightIcon) {
+                if (this.wwEditorState.isACopy) {
+                    return;
+                }
                 if (hasRightIcon && !this.content.rightIcon) {
                     const uid = await wwLib.wwObjectHelper.create('ww-icon');
-                    this.$emit('update', { rightIcon: { uid, isWwObject: true } });
+                    this.$emit('update-effect', { rightIcon: { uid, isWwObject: true } });
                 }
             },
         },
         'content.hasLeftIcon': {
             async handler(hasLeftIcon) {
+                if (this.wwEditorState.isACopy) {
+                    return;
+                }
                 if (hasLeftIcon && !this.content.leftIcon) {
                     const uid = await wwLib.wwObjectHelper.create('ww-icon');
-                    this.$emit('update', { leftIcon: { uid, isWwObject: true } });
+                    this.$emit('update-effect', { leftIcon: { uid, isWwObject: true } });
                 }
             },
         },
+        /* wwManager:end */
     },
 };
 </script>
