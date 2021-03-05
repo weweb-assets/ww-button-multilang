@@ -20,18 +20,18 @@ export default {
         text: {
             en: 'My button',
         },
-        fontSize: wwLib.responsive('16px'),
-        fontFamily: wwLib.responsive(''),
-        textAlign: wwLib.responsive(''),
-        color: wwLib.responsive(''),
-        backgroundColor: wwLib.responsive(''),
-        textTransform: wwLib.responsive(''),
-        textShadow: wwLib.responsive(''),
-        lineHeight: wwLib.responsive(''),
-        wordSpacing: wwLib.responsive(''),
-        fontWeight: wwLib.responsive(''),
         hasRightIcon: false,
         hasLeftIcon: false,
+        textAlign: wwLib.responsive(''),
+        fontSize: wwLib.allowState(wwLib.responsive('16px')),
+        fontFamily: wwLib.allowState(wwLib.responsive('')),
+        color: wwLib.allowState(wwLib.responsive('')),
+        backgroundColor: wwLib.allowState(wwLib.responsive('')),
+        textTransform: wwLib.allowState(wwLib.responsive('')),
+        textShadow: wwLib.allowState(wwLib.responsive('')),
+        lineHeight: wwLib.allowState(wwLib.responsive('')),
+        wordSpacing: wwLib.allowState(wwLib.responsive('')),
+        fontWeight: wwLib.allowState(wwLib.responsive('')),
     },
     props: {
         content: Object,
@@ -44,7 +44,7 @@ export default {
             /* wwManager:start */
             return (
                 this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION &&
-                this.wwEditorState.isSelected &&
+                this.wwEditorState.isDoubleSelected &&
                 !this.isTextBinded
             );
             /* wwManager:end */
