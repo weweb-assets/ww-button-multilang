@@ -7,7 +7,6 @@
             :value="content.text"
             :textStyle="textStyle"
             @input="updateText"
-            @textbar-visibility-changed="onTextbarVisibilityChanged"
         ></wwEditableText>
         <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>
     </div>
@@ -15,7 +14,6 @@
 
 <script>
 export default {
-    name: '__COMPONENT_NAME__',
     wwDefaultContent: {
         text: {
             en: 'My button',
@@ -83,16 +81,8 @@ export default {
             return { type };
         },
     },
-    methods: {
-        updateText(text) {
-            this.$emit('update', { text });
-        },
-        onTextbarVisibilityChanged(visibility) {
-            this.$emit('change-menu-visibility', !visibility);
-        },
-    },
+    /* wwEditor:start */
     watch: {
-        /* wwManager:start */
         'content.hasRightIcon': {
             async handler(hasRightIcon) {
                 if (this.wwEditorState.isACopy) {
@@ -115,7 +105,23 @@ export default {
                 }
             },
         },
-        /* wwManager:end */
+        canEditText() {
+            const bordersStyle = {
+                width: 'calc(100% + 8px)',
+                height: 'calc(100% + 8px)',
+                top: '-4px',
+                left: '-4px',
+                border: '4px solid var(--ww-color-blue-200)',
+            };
+            this.$emit('change-menu-visibility', this.wwEditorState.isSelected && !this.canEditText);
+            this.$emit('change-borders-style', this.canEditText ? bordersStyle : {});
+        },
+    },
+    /* wwEditor:end */
+    methods: {
+        updateText(text) {
+            this.$emit('update', { text });
+        },
     },
 };
 </script>
