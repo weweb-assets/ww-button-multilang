@@ -119,6 +119,18 @@ export default {
                 }
             },
         },
+        'content.font': {
+            async handler(newVal, oldVal) {
+                if (this.wwEditorState.isACopy) {
+                    return;
+                }
+                if (!newVal && oldVal) {
+                    const defaultValue = wwLib.getStyleFromToken(oldVal);
+                    const typo = wwLib.getTypoFromToken(defaultValue);
+                    this.$emit('update-effect', typo);
+                }
+            },
+        },
         canEditText() {
             const bordersStyle = {
                 width: 'calc(100% + 8px)',
