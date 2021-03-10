@@ -128,6 +128,10 @@ export default {
                     const defaultValue = wwLib.getStyleFromToken(oldVal);
                     const typo = wwLib.getTypoFromToken(defaultValue);
                     this.$emit('update-effect', typo);
+                } else if (newVal && newVal !== oldVal) {
+                    const defaultValue = wwLib.getStyleFromToken(newVal);
+                    const typo = wwLib.getTypoFromToken(defaultValue);
+                    this.$emit('update-effect', typo);
                 }
             },
         },
