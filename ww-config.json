@@ -13,7 +13,6 @@
                 {
                     "name": "Font size",
                     "quick": [
-                        { "type": "custom-style", "name": "fontSize" },
                         { "type": "custom-settings", "name": "hasLeftIcon" },
                         { "type": "custom-settings", "name": "hasRightIcon" }
                     ],

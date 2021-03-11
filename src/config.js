@@ -67,7 +67,7 @@ function getTypoOptions(content) {
                         { value: 'px', label: 'px', min: 0, max: 100 },
                         { value: '%', label: '%', min: 0, max: 100 },
                         { value: 'em', label: 'em', min: 0, max: 100 },
-                        { value: 'normal', label: 'normal', default: true },
+                        { value: 'normal', label: 'auto', default: true },
                     ],
                 },
             },
