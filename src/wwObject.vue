@@ -116,6 +116,18 @@ export default {
             this.$emit('change-menu-visibility', this.wwEditorState.isSelected && !this.canEditText);
             this.$emit('change-borders-style', this.canEditText ? bordersStyle : {});
         },
+        'wwEditorState.isDoubleSelected'(newVal, oldVal) {
+            if (newVal && !oldVal && this.isTextBinded) {
+                wwLib.wwNotification.open({
+                    text: {
+                        en: 'Binded buttons cannot be edited.',
+                        fr: 'Les boutons bindés ne peuvent pas être édités.',
+                    },
+                    color: 'purple',
+                    duration: 3000,
+                });
+            }
+        },
     },
     /* wwEditor:end */
     methods: {
