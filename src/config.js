@@ -79,6 +79,9 @@ function getTypoOptions(content) {
 
 export function getConfig(content) {
     return {
+        quick: {
+            sections: ['ww-link', 'ww-background'],
+        },
         styleOptions: {
             ...getTypoOptions(content),
             textAlign: {
