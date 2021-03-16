@@ -10,7 +10,7 @@
         },
         "menuOptions": {
             "quick": {
-                "sections": ["hasLeftIcon", "hasRightIcon", "ww-link"]
+                "sections": ["ww-link"]
             }
         },
         "settingsOptions": {
