@@ -9,21 +9,9 @@
             "fr": "Bouton"
         },
         "menuOptions": {
-            "items": [
-                {
-                    "name": "Font size",
-                    "quick": [
-                        { "type": "custom-settings", "name": "hasLeftIcon" },
-                        { "type": "custom-settings", "name": "hasRightIcon" }
-                    ],
-                    "icon": "icon"
-                },
-                {
-                    "name": "Tag",
-                    "quick": [{ "type": "Link" }],
-                    "icon": "link"
-                }
-            ]
+            "quick": {
+                "sections": ["hasLeftIcon", "hasRightIcon", "ww-link"]
+            }
         },
         "settingsOptions": {
             "buttonType": {
