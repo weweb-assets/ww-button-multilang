@@ -64,7 +64,13 @@ export default {
         textStyle() {
             return {
                 ...(this.content.font
-                    ? { font: this.content.font }
+                    ? {
+                          fontSize: 'unset',
+                          fontFamily: 'unset',
+                          lineHeight: 'unset',
+                          fontWeight: 'unset',
+                          font: this.content.font,
+                      }
                     : {
                           fontSize: this.content.fontSize,
                           fontFamily: this.content.fontFamily,
