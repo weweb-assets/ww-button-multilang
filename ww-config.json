@@ -10,7 +10,8 @@
         },
         "menuOptions": {
             "quick": {
-                "sections": ["ww-link"]
+                "sections": ["ww-link"],
+                "bind": [{ "prop": "text", "label": { "en": "Bind text" } }]
             }
         },
         "settingsOptions": {

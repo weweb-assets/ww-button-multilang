@@ -79,10 +79,6 @@ function getTypoOptions(content) {
 
 export function getConfig(content) {
     return {
-        quick: {
-            sections: ['ww-link', 'ww-background'],
-            bind: [{ prop: 'text', label: { en: 'Bind text' } }],
-        },
         styleOptions: {
             ...getTypoOptions(content),
             textAlign: {
