@@ -1,5 +1,5 @@
 <template>
-    <div class="ww-button" :is="tag" :class="{ button: tag }">
+    <div class="ww-button" :is="tag" :class="{ button: tag }" :type="content.buttonType">
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
         <wwEditableText
             class="ww-button__text"
@@ -20,6 +20,7 @@ export default {
         },
         hasRightIcon: false,
         hasLeftIcon: false,
+        buttonType: 'button',
         textAlign: wwLib.responsive(''),
         fontSize: wwLib.allowState(wwLib.responsive('16px')),
         fontFamily: wwLib.allowState(wwLib.responsive('')),
@@ -65,21 +66,21 @@ export default {
                 fontWeight: this.content.fontWeight,
             };
         },
+        isEditing() {
+            /* wwEditor:start */
+            return this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION;
+            /* wwEditor:end */
+            // eslint-disable-next-line no-unreachable
+            return false;
+        },
         tag() {
-            return this.content.buttonType ? 'button' : 'div';
+            return !this.isEditing && this.content.buttonType ? 'button' : 'div';
         },
         /* wwManager:start */
         isTextBinded() {
             return this.wwEditorState.bindedProps['text'];
         },
         /* wwManager:end */
-        attributes() {
-            const type = this.content.buttonType;
-            if (!type) {
-                return {};
-            }
-            return { type };
-        },
     },
     /* wwEditor:start */
     watch: {
