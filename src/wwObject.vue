@@ -94,7 +94,9 @@ export default {
             return false;
         },
         tag() {
-            return !this.isEditing && this.content.buttonType ? 'button' : 'div';
+            return !this.isEditing && (this.content.buttonType === 'submit' || this.content.buttonType === 'reset')
+                ? 'button'
+                : 'div';
         },
         /* wwManager:start */
         isTextBinded() {
