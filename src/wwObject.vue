@@ -44,6 +44,7 @@ export default {
     /* wwEditor: end */
     props: {
         content: Object,
+        wwElementState: Object,
         /* wwManager: start */
         wwEditorState: Object,
         /* wwManager: end */
@@ -94,7 +95,7 @@ export default {
             return false;
         },
         tag() {
-            return !this.isEditing && (this.content.buttonType === 'submit' || this.content.buttonType === 'reset')
+            return !this.isEditing && (this.content.buttonType === 'submit' || this.content.buttonType === 'reset') && !this.wwElementState.isInsideLink
                 ? 'button'
                 : 'div';
         },
