@@ -10,7 +10,7 @@
         },
         "menuOptions": {
             "quick": {
-                "sections": ["ww-link"],
+                "sections": ["ww-link", "hasLeftIcon", "hasRightIcon"],
                 "bind": [{ "prop": "text", "label": { "en": "Bind text" } }]
             }
         },
