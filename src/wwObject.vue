@@ -1,5 +1,5 @@
 <template>
-    <div class="ww-button" :is="tag" :class="{ button: tag }" :type="content.buttonType">
+    <wwLink class="ww-button" :ww-link="wwLang.getText(content.link)">
         <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
         <wwEditableText
             class="ww-button__text"
@@ -9,7 +9,7 @@
             @input="updateText"
         ></wwEditableText>
         <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>
-    </div>
+    </wwLink>
 </template>
 
 <script>
@@ -24,7 +24,6 @@ export default {
         },
         hasRightIcon: false,
         hasLeftIcon: false,
-        buttonType: 'button',
         textAlign: wwLib.responsive(''),
         fontSize: wwLib.allowState(wwLib.responsive('16px')),
         fontFamily: wwLib.allowState(wwLib.responsive('')),
@@ -48,6 +47,11 @@ export default {
         /* wwManager: start */
         wwEditorState: Object,
         /* wwManager: end */
+    },
+    data() {
+        return {
+            wwLang: wwLib.wwLang,
+        };
     },
     computed: {
         canEditText() {
@@ -93,11 +97,6 @@ export default {
             /* wwEditor:end */
             // eslint-disable-next-line no-unreachable
             return false;
-        },
-        tag() {
-            return !this.isEditing && (this.content.buttonType === 'submit' || this.content.buttonType === 'reset') && !this.wwElementState.isInsideLink
-                ? 'button'
-                : 'div';
         },
         /* wwManager:start */
         isTextBinded() {
@@ -189,6 +188,9 @@ export default {
         background: none;
         font-family: inherit;
         font-size: inherit;
+    }
+    &__text {
+        cursor: inherit;
     }
 }
 </style>

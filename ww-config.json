@@ -5,30 +5,23 @@
     },
     "editor": {
         "label": {
-            "en": "Button",
-            "fr": "Bouton"
+            "en": "Multilang button",
+            "fr": "Bouton multilingue"
         },
         "menuOptions": {
             "quick": {
-                "sections": ["ww-link", "hasLeftIcon", "hasRightIcon"],
-                "bind": [{ "prop": "text", "label": { "en": "Bind text" } }]
+                "sections": ["link", "hasLeftIcon", "hasRightIcon"],
+                "bind": [
+                    { "prop": "text", "label": { "en": "Bind text" } },
+                    { "prop": "link", "label": { "en": "Bind link" } }
+                ]
             }
         },
         "settingsOptions": {
-            "buttonType": {
-                "label": {
-                    "en": "Type",
-                    "fr": "Type"
-                },
-                "type": "TextSelect",
-                "options": {
-                    "options": [
-                        { "value": null, "label": "none" },
-                        { "value": "button", "label": "Button" },
-                        { "value": "submit", "label": "Submit Button" },
-                        { "value": "reset", "label": "Reset Button" }
-                    ]
-                }
+            "link": {
+                "label": { "en": "Link", "fr": "Lien" },
+                "type": "Link",
+                "multiLang": true
             },
             "hasLeftIcon": {
                 "label": { "en": "Left icon", "fr": "Icône gauche" },
