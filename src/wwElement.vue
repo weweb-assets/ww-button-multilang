@@ -1,5 +1,5 @@
 <template>
-    <wwLink class="ww-button" :ww-link="wwLang.getText(content.link)">
+    <wwLink class="ww-button" :ww-link="wwLang.getText(content.link)" :disabled="isEditing">
         <wwElement v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon" />
         <wwEditableText
             class="ww-button__text"
