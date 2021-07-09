@@ -1,14 +1,14 @@
 <template>
     <wwLink class="ww-button" :ww-link="wwLang.getText(content.link)">
-        <wwObject v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon"></wwObject>
+        <wwElement v-if="content.hasLeftIcon && content.leftIcon" v-bind="content.leftIcon" />
         <wwEditableText
             class="ww-button__text"
             :disabled="!canEditText"
             :model-value="content.text"
             :text-style="textStyle"
             @update:modelValue="updateText"
-        ></wwEditableText>
-        <wwObject v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon"></wwObject>
+        />
+        <wwElement v-if="content.hasRightIcon && content.rightIcon" v-bind="content.rightIcon" />
     </wwLink>
 </template>
 
@@ -44,9 +44,9 @@ export default {
     props: {
         content: { type: Object, required: true },
         wwElementState: { type: Object, required: true },
-        /* wwManager: start */
+        /* wwEditor: start */
         wwEditorState: { type: Object, required: true },
-        /* wwManager: end */
+        /* wwEditor: end */
     },
     emits: ['update:content', 'update:content:effect', 'change-menu-visibility', 'change-borders-style'],
     data() {
@@ -56,13 +56,13 @@ export default {
     },
     computed: {
         canEditText() {
-            /* wwManager:start */
+            /* wwEditor:start */
             return (
                 this.wwEditorState.editMode === wwLib.wwEditorHelper.EDIT_MODES.EDITION &&
                 this.wwEditorState.isDoubleSelected &&
                 !this.isTextBound
             );
-            /* wwManager:end */
+            /* wwEditor:end */
             /* wwFront:start */
             // eslint-disable-next-line no-unreachable
             return false;
@@ -99,11 +99,11 @@ export default {
             // eslint-disable-next-line no-unreachable
             return false;
         },
-        /* wwManager:start */
+        /* wwEditor:start */
         isTextBound() {
             return this.wwEditorState.boundProps['text'];
         },
-        /* wwManager:end */
+        /* wwEditor:end */
     },
     /* wwEditor:start */
     watch: {

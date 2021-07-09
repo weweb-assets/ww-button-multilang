@@ -1,5 +1,5 @@
 {
-    "name": "ww-button",
+    "name": "ww-button-multilang",
     "repository": {
         "type": "git",
         "url": "https://github.com/weweb-assets/ww-button-multilang"
@@ -8,8 +8,7 @@
     "license": "MIT",
     "scripts": {
         "build": "weweb build",
-        "serve": "weweb serve",
-        "create-config": "weweb config"
+        "serve": "weweb serve"
     },
     "dependencies": {},
     "devDependencies": {
