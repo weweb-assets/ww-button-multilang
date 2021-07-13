@@ -13,9 +13,9 @@
 </template>
 
 <script>
-/* wwEditor: start */
+/* wwEditor:start */
 import { getConfig } from './config.js';
-/* wwEditor: end */
+/* wwEditor:end */
 
 export default {
     wwDefaultContent: {
@@ -36,17 +36,17 @@ export default {
         fontWeight: wwLib.allowState(wwLib.responsive('')),
         font: wwLib.allowState(wwLib.responsive(null)),
     },
-    /* wwEditor: start */
+    /* wwEditor:start */
     wwEditorConfiguration({ content }) {
         return getConfig(content);
     },
-    /* wwEditor: end */
+    /* wwEditor:end */
     props: {
         content: { type: Object, required: true },
         wwElementState: { type: Object, required: true },
-        /* wwEditor: start */
+        /* wwEditor:start */
         wwEditorState: { type: Object, required: true },
-        /* wwEditor: end */
+        /* wwEditor:end */
     },
     emits: ['update:content', 'update:content:effect', 'change-menu-visibility', 'change-borders-style'],
     data() {
