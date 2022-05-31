@@ -7,15 +7,6 @@ export default {
             en: 'Multilang button',
             fr: 'Bouton multilingue',
         },
-        menuOptions: {
-            quick: {
-                sections: ['link', 'hasLeftIcon', 'hasRightIcon'],
-                bind: [
-                    { prop: 'text', label: { en: 'Bind text' } },
-                    { prop: 'link', label: { en: 'Bind link' } },
-                ],
-            },
-        },
     },
     properties: {
         link: {
